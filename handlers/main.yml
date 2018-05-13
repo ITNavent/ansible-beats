@@ -23,6 +23,12 @@
     name: heartbeat
     state: restarted
 
+- name: restart heartbeat-elastic
+  become: yes
+  service:
+    name: heartbeat-elastic
+    state: restarted
+
 - name: restart metricbeat
   become: yes
   service:
