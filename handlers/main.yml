@@ -8,6 +8,12 @@
 - name: restart packetbeat
   become: yes
   service:
+    name: packetbeat
+    state: restarted
+
+- name: restart topbeat
+  become: yes
+  service:
     name: topbeat
     state: restarted
 
