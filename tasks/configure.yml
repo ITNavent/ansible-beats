@@ -2,8 +2,8 @@
 - name: Copy beat configuration
   become: yes
   copy:
-    content: "{{ beats_clients_configs[item] | to_nice_yaml }}"
-    dest: "/etc/{{ item }}/{{ item }}.yml"
+    content: "{{ beats_clients_configs[item | regex_replace('-elastic')] | to_nice_yaml }}"
+    dest: "/etc/{{ item | regex_replace('-elastic') }}/{{ item | regex_replace('-elastic') }}.yml"
     mode: "0644"
     owner: root
     group: root
