@@ -1,9 +1,6 @@
 ---
 - name: Add ElasticSearch apt key.
-  apt_key:
-    id: "{{ beats_client_elastic_pgp_key }}"
-    keyserver: "{{ beats_client_keyserver }}"
-    state: present
+  shell: wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 
 - name: Install beats pre-req software
   apt:
