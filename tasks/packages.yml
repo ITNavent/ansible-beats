@@ -22,7 +22,7 @@
   lineinfile:
     path: "/lib/systemd/system/{{ item }}.service"
     insertafter: "\[Service\]"
-    line: "EnvironmentFile=-/etc/environment"
+    line: "EnvironmentFile=-{{ beats_client_environment_dir }}/{{ item }}"
   with_items: "{{ beats_client_beats_packages }}"
 
 - name: Reload systemd
