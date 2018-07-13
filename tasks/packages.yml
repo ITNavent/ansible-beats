@@ -25,6 +25,12 @@
     line: "EnvironmentFile=-{{ beats_client_environment_dir }}/{{ item }}"
   with_items: "{{ beats_client_beats_packages }}"
 
+- name: Create environment files
+  file:
+    path: "{{ beats_client_environment_dir }}/{{ item }}"
+    state: file
+  with_items: "{{ beats_client_beats_packages }}"
+
 - name: Reload systemd
   systemd:
     daemon_reload: yes
