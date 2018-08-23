@@ -26,9 +26,10 @@
   with_items: "{{ beats_client_beats_packages }}"
 
 - name: Create environment files
-  file:
-    path: "{{ beats_client_environment_dir }}/{{ item }}"
-    state: file
+  copy:
+    content: ""
+    dest: "{{ beats_client_environment_dir }}/{{ item }}"
+    force: no
   with_items: "{{ beats_client_beats_packages }}"
 
 - name: Reload systemd
