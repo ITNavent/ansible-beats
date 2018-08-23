@@ -8,7 +8,7 @@ beats_client_beats_packages:
   - filebeat
   - metricbeat
 
-beats_client_version: 6.2.4
+beats_client_version: 6.4.0
 # The apt repo URL pegs minor versions (e.g. 6.x) to avoid unexpected upgrades
 beats_client_major_version_abbreviated: "{{ beats_client_version | regex_replace('^(\\d).*$', '\\1.x') }}"
 
